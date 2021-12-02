@@ -2,13 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ppperrypan.github.io</id>
     <title>Perry&apos;s Blog</title>
-    <updated>2021-12-01T14:36:11.096Z</updated>
+    <updated>2021-12-02T03:41:49.193Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ppperrypan.github.io"/>
     <link rel="self" href="https://ppperrypan.github.io/atom.xml"/>
     <logo>https://ppperrypan.github.io/images/avatar.png</logo>
     <icon>https://ppperrypan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Perry&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Git 连接 GitHub]]></title>
+        <id>https://ppperrypan.github.io/post/gitbash-lian-jie-github/</id>
+        <link href="https://ppperrypan.github.io/post/gitbash-lian-jie-github/">
+        </link>
+        <updated>2021-12-02T03:34:16.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="本地配置">本地配置</h1>
+<ol>
+<li>
+<p>设置Email、userName</p>
+<pre><code> git config --global user.email &quot;you@example.com&quot;  
+ git config --global user.name &quot;Your userName&quot;
+</code></pre>
+</li>
+<li>
+<p>生成公钥</p>
+<pre><code> ssh-keygen -C ‘your@email.address’ -t rsa
+</code></pre>
+</li>
+<li>
+<p>复制公钥</p>
+<p>Windows:</p>
+<pre><code> clip &lt; ~/.ssh/id_rsa.pub
+</code></pre>
+<p>macOS:</p>
+<pre><code> cat ~/.ssh/id_rsa.pub | pbcopy
+</code></pre>
+</li>
+</ol>
+<h1 id="远程配置">远程配置</h1>
+<ol>
+<li>
+<p>前往GitHub粘贴</p>
+<p>Settings -- SSH ang GPG keys -- New SSH key</p>
+</li>
+</ol>
+<h1 id="验证连接">验证连接</h1>
+<pre><code>ssh -T git@github.com
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git基础]]></title>
         <id>https://ppperrypan.github.io/post/git-ji-chu/</id>
