@@ -2,13 +2,55 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ppperrypan.github.io</id>
     <title>Perry&apos;s Blog</title>
-    <updated>2021-12-02T03:41:49.193Z</updated>
+    <updated>2021-12-04T08:09:48.505Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ppperrypan.github.io"/>
     <link rel="self" href="https://ppperrypan.github.io/atom.xml"/>
     <logo>https://ppperrypan.github.io/images/avatar.png</logo>
     <icon>https://ppperrypan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Perry&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[清除Absolute防盗追踪软件]]></title>
+        <id>https://ppperrypan.github.io/post/qing-chu-absolute-fang-dao-zhui-zong-ruan-jian/</id>
+        <link href="https://ppperrypan.github.io/post/qing-chu-absolute-fang-dao-zhui-zong-ruan-jian/">
+        </link>
+        <updated>2021-12-04T07:42:59.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="起因">起因</h1>
+<p>由于学业需求,从某鱼上捡来一台Surface 3,使用一段时间后发现疑似存在恶意软件，且重装系统无法清除，BIOS设置内无任何设置选项。</p>
+<ol>
+<li>疑似恶意程序&amp;进程<br>
+<img src="https://ppperrypan.github.io/post-images/1638605099819.jpg" alt="疑似恶意进程" loading="lazy"></li>
+<li>强制托管Chrome,插件名也极为邪恶<br>
+<img src="https://ppperrypan.github.io/post-images/1638605263170.jpg" alt="疑似恶意插件" loading="lazy"></li>
+</ol>
+<p>后面发现是Absolute公司的一个防盗追踪软件，国内部分大学官网已提供解决方案，但在我的Surface上均不起作用，故找出了新的解决方案。</p>
+<h1 id="分析">分析</h1>
+<p>程序固化在BIOS固件中，最佳方案为换主板/刷BIOS。但以上方法并非最低成本解决方案。</p>
+<p>经过简单分析，程序固化在BIOS中，仅有rpcnetp.exe一个文件，每次电脑开机时自动检测并嵌入到Windows系统中，如果电脑中没有完整的Absolute软件，等待连接到网络后将自动下载并安装，以此使软件保活。</p>
+<h1 id="实施">实施</h1>
+<p>清除方案：</p>
+<ul>
+<li><strong>以下过程需要全程断网</strong></li>
+</ul>
+<ol>
+<li>重置系统，进入系统后在进程列表能找到名为rpcnetp的进程(以服务形式)<br>
+![进程]](https://ppperrypan.github.io/post-images/1638605287955.jpg)</li>
+<li>在桌面上新建一个txt，命名为rpcnetp.exe(需更改拓展名)</li>
+<li>更改桌面上的rpcnetp.exe文件属性，勾选“只读”、“加密内容以保护数据”。<br>
+<img src="https://ppperrypan.github.io/post-images/1638605304799.png" alt="属性" loading="lazy"></li>
+<li>更改桌面上的rpcnetp.exe文件属性，“高级安全设置”内将 <strong>STSTEM</strong> , <strong>Administrators</strong> 设为 <strong>拒绝完全控制</strong>。<br>
+<img src="https://ppperrypan.github.io/post-images/1638605317041.png" alt="属性" loading="lazy"></li>
+<li>保存桌面上的rpcnetp.exe的文件属性</li>
+<li>打开任务管理器，结束<strong>rpcnetp</strong>进程</li>
+<li>将桌面上的rpcnetp.exe拷贝到 <strong>C:\Windows\System32</strong> 并选择覆盖已存在文件。</li>
+</ol>
+<h1 id="重启电脑">重启电脑</h1>
+<p>此时<strong>重启的开机速度</strong>会比之前的开机速度慢30秒左右，但<strong>不影响</strong>关机后再开机的开机速度(前提：启用了“快速启动”功能并能够正常运作)。</p>
+<p>系统启动后，任务管理器已不存在rpcnetp进程，Absolute防盗软件已被移除且在重装系统前无法自动修复和启动。(<strong>前提：请勿删除从桌面替换的&quot;C:\Windows\System32\rpcnetp.exe&quot;</strong> )<br>
+<img src="https://ppperrypan.github.io/post-images/1638605329913.png" alt="属性" loading="lazy"></p>
+<p><strong>清除已完成，连接到网络，正常使用电脑即可！</strong></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git 连接 GitHub]]></title>
         <id>https://ppperrypan.github.io/post/gitbash-lian-jie-github/</id>
