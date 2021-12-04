@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ppperrypan.github.io</id>
     <title>Perry&apos;s Blog</title>
-    <updated>2021-12-04T08:24:56.509Z</updated>
+    <updated>2021-12-04T08:26:46.326Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ppperrypan.github.io"/>
     <link rel="self" href="https://ppperrypan.github.io/atom.xml"/>
@@ -34,7 +34,7 @@
 </ul>
 <ol>
 <li>重置系统，进入系统后在进程列表能找到名为rpcnetp的进程(以服务形式)<br>
-![进程]](https://ppperrypan.github.io/post-images/1638605287955.jpg)</li>
+<img src="https://ppperrypan.github.io/post-images/1638605287955.jpg" alt="进程" loading="lazy"></li>
 <li>在桌面上新建一个txt，命名为rpcnetp.exe(需更改拓展名)</li>
 <li>更改桌面上的rpcnetp.exe文件属性，勾选“只读”、“加密内容以保护数据”。<br>
 <img src="https://ppperrypan.github.io/post-images/1638605304799.png" alt="属性" loading="lazy"></li>
